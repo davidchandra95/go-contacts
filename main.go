@@ -31,7 +31,7 @@ func main() {
 	// Important lines for frond-end utilise
 	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
 	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
-	allowedHeaders := handlers.AllowedHeaders([]string{"Content-Type", "X-Requested-With"}),
+	allowedHeaders := handlers.AllowedHeaders([]string{"Content-Type", "X-Requested-With"})
 
 	err := http.ListenAndServe(":" + port, handlers.CORS(allowedOrigins, allowedMethods, allowedHeaders)(router)) // Launch the app
 	if err != nil {
