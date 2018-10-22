@@ -16,7 +16,7 @@ func main() {
 	router.HandleFunc("/api/user/new", controllers.CreateAccount).Methods("POST")
 	router.HandleFunc("/api/user/login", controllers.Authenticate).Methods("POST")
 	router.HandleFunc("/api/contacts/new", controllers.CreateContact).Methods("POST")
-	router.HandleFunc("/api/me/contacts/{id}", controllers.GetContact).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/me/contacts/{id}", controllers.GetContact).Methods("GET")
 	router.HandleFunc("/api/me/contacts", controllers.GetContacts).Methods("GET") // user/2/contacts
 
 	router.Use(app.JwtAuthentication) // Attach JWT middleware
@@ -31,7 +31,7 @@ func main() {
 	// Important lines for frond-end utilise
 	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
 	allowedHeaders := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
-	allowedMethods := handlers.AllowedMethods([]string{"POST", "OPTIONS", "GET", "PUT", "DELETE"})
+	allowedMethods := handlers.AllowedMethods([]string{"POST", "GET", "PUT", "DELETE"})
 
 	err := http.ListenAndServe(":" + port, handlers.CORS(allowedOrigins, allowedMethods, allowedHeaders)(router)) // Launch the app
 	if err != nil {

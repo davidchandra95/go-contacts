@@ -42,7 +42,7 @@ $(document).ready(function () {
       e.preventDefault()
       axios({
          method: 'GET',
-         url: 'https://go-contacts-david.herokuapp.com/api/me/contacts/2',
+         url: 'https://go-contacts-david.herokuapp.com/api/me/contacts',
          headers: {
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlVzZXJuYW1lIjoiIn0.2n6aTppHGI4YWIBv2jCam-0OXj5_NX-dwGb7Z425Wiw',
             'Content-Type': 'text/plain',
