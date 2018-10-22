@@ -13,11 +13,11 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/api/user/new", controllers.CreateAccount).Methods("POST")
-	router.HandleFunc("/api/user/login", controllers.Authenticate).Methods("POST")
-	router.HandleFunc("/api/contacts/new", controllers.CreateContact).Methods("POST")
-	router.HandleFunc("/api/me/contacts/{id}", controllers.GetContact).Methods("GET")
-	router.HandleFunc("/api/me/contacts", controllers.GetContacts).Methods("GET") // user/2/contacts
+	router.HandleFunc("/api/user/new", controllers.CreateAccount).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/user/login", controllers.Authenticate).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/contacts/new", controllers.CreateContact).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/me/contacts/{id}", controllers.GetContact).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/me/contacts", controllers.GetContacts).Methods("GET", "OPTIONS") // user/2/contacts
 
 	router.Use(app.JwtAuthentication) // Attach JWT middleware
 
