@@ -45,8 +45,6 @@ $(document).ready(function () {
          url: 'https://go-contacts-david.herokuapp.com/api/me/contacts',
          headers: {
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlVzZXJuYW1lIjoiIn0.2n6aTppHGI4YWIBv2jCam-0OXj5_NX-dwGb7Z425Wiw',
-            'Content-Type': 'text/plain',
-            'X-Requested-With': 'XMLHttpRequest'
          },
       })
          .then(function (data) {
@@ -65,10 +63,7 @@ function Login(email, password) {
       data: {
          email: email,
          password: password
-      },
-      headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-      },
+      }
    })
       .then(function (data) {
          console.log(data);
