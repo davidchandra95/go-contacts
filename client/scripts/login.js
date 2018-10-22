@@ -46,6 +46,7 @@ $(document).ready(function () {
          headers: {
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlVzZXJuYW1lIjoiIn0.2n6aTppHGI4YWIBv2jCam-0OXj5_NX-dwGb7Z425Wiw',
             'Content-Type': 'text/plain',
+            'X-Requested-With': 'XMLHttpRequest'
          },
       })
          .then(function (data) {
