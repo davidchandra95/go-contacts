@@ -10,7 +10,7 @@ func Message(status bool, message string) map[string]interface{} {
 }
 
 func Respond(w http.ResponseWriter, data map[string]interface{}) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	json.NewEncoder(w).Encode(data)
 }
