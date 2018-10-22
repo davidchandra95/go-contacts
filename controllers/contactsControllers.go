@@ -32,6 +32,10 @@ var GetContact = func(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	//Allow CORS here By * or specific origin
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
 	data := models.GetContact(uint(id))
 	resp := u.Message(true, "success")
 	resp["data"] = data

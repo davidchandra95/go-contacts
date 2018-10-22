@@ -45,6 +45,7 @@ $(document).ready(function () {
          url: 'https://go-contacts-david.herokuapp.com/api/me/contacts/2',
          headers: {
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlVzZXJuYW1lIjoiIn0.2n6aTppHGI4YWIBv2jCam-0OXj5_NX-dwGb7Z425Wiw',
+            'Content-Type': 'text/html'
          }
       }).then(function (response) {
          return response.JSON()
