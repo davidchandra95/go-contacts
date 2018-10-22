@@ -42,10 +42,11 @@ $(document).ready(function () {
       e.preventDefault()
       axios({
          method: 'GET',
-         url: 'https://aqueous-peak-91311.herokuapp.com/',
-         // headers: {
-         //    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlVzZXJuYW1lIjoiIn0.2n6aTppHGI4YWIBv2jCam-0OXj5_NX-dwGb7Z425Wiw'
-         // }
+         url: 'https://go-contacts-david.herokuapp.com/api/me/contacts/2',
+         headers: {
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjIsIlVzZXJuYW1lIjoiIn0.2n6aTppHGI4YWIBv2jCam-0OXj5_NX-dwGb7Z425Wiw',
+            'Content-Type': 'application/x-www-form-urlencoded'
+         }
       })
          .then(function (data) {
             console.log(data);

@@ -29,8 +29,8 @@ func main() {
 	fmt.Println(port)
 
 	// Important lines for frond-end utilise
-	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
-	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
+	allowedOrigins := handlers.AllowedOrigins([]string{"http://127.0.0.1:5500"})
+	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"})
 
 	err := http.ListenAndServe(":" + port, handlers.CORS(allowedOrigins, allowedMethods)(router)) // Launch the app
 	if err != nil {
