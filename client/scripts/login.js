@@ -60,14 +60,14 @@ $(document).ready(function () {
 function getUser(email, password) {
    axios({
       method: 'POST',
-      url: 'go-contacts-david.herokuapp.com/api/user/login',
+      url: 'https://go-contacts-david.herokuapp.com/api/user/new',
       data: {
          email: email,
          password: password
       },
       headers: {
-         'Content-Type': 'application/json',
-      }
+          'Content-Type': 'text/plain;charset=utf-8',
+      },
    }).then(function (response) {
       return response.JSON()
    })
