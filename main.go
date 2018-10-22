@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/handlers"
 	"go-contacts/app"
 	"go-contacts/controllers"
 	"os"
@@ -27,7 +28,11 @@ func main() {
 
 	fmt.Println(port)
 
-	err := http.ListenAndServe(":" + port, router) // Launch the app
+	// Important lines for frond-end utilise
+	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
+	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
+
+	err := http.ListenAndServe(":" + port, handlers.CORS(allowedOrigins, allowedMethods)(router)) // Launch the app
 	if err != nil {
 		fmt.Print(err)
 	}
